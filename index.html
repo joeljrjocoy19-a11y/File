@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="Joel Jr. M. Jocoy — portfolio, experience, skills, and education.">
+  <title>Joel Jr. M. Jocoy — Digital Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#080b14;--panel:rgba(17,23,39,.76);--text:#f3f6ff;--muted:#9ba7bd;--line:rgba(148,163,184,.18);--cyan:#64e8ff;--violet:#a78bfa;--green:#77f2c3;--shadow:0 24px 80px rgba(0,0,0,.28)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;color:var(--text);background:radial-gradient(ellipse at 15% 8%,rgba(45,212,255,.13),transparent 32rem),radial-gradient(ellipse at 90% 35%,rgba(139,92,246,.13),transparent 34rem),var(--bg);font-family:"DM Sans",sans-serif;line-height:1.65;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.17;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+    a{color:inherit;text-decoration:none}button{font:inherit}
+    .nav{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px max(5vw,22px);border-bottom:1px solid transparent;transition:.35s ease}
+    .nav.scrolled{background:rgba(8,11,20,.88);border-color:var(--line);backdrop-filter:blur(18px)}
+    .brand{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.03em}
+    .brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;color:#07111a;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:0 0 28px #64e8ff35}
+    .nav-links{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:.9rem}.nav-links a:hover{color:var(--cyan)}
+    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #64e8ff70;border-radius:999px;padding:11px 18px;color:var(--text);background:rgba(100,232,255,.08);transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer}
+    .nav-cta:hover,.button:hover{transform:translateY(-3px);box-shadow:0 10px 32px #64e8ff20;background:rgba(100,232,255,.15)}
+    .button.primary{color:#07111a;background:linear-gradient(100deg,var(--cyan),#b8f5ff);border:0;font-weight:700}.button.secondary{background:rgba(255,255,255,.035);border-color:var(--line)}
+    .menu-toggle{display:none;background:none;color:white;border:1px solid var(--line);border-radius:10px;padding:7px 11px}
+    main{max-width:1240px;margin:auto;padding:0 5vw}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:55px;padding:100px 0 70px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;font-weight:700}
+    .pulse{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 15px var(--green);animation:pulse 2s infinite}
+    h1,h2,h3,p{margin-top:0}h1{font:700 clamp(3rem,6.5vw,6.2rem)/.99 "Space Grotesk",sans-serif;letter-spacing:-.075em;margin:22px 0}
+    .gradient-text{background:linear-gradient(105deg,#fff 15%,var(--cyan) 54%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:620px;color:var(--muted);font-size:clamp(1rem,1.5vw,1.13rem)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 25px}.mini-facts{display:flex;flex-wrap:wrap;gap:10px}
+    .pill{padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:#c6d0e2;background:#ffffff05;font-size:.8rem}
+    .portrait-stage{min-height:490px;display:grid;place-items:center;position:relative;isolation:isolate}
+    .orbit{position:absolute;width:min(100%,440px);aspect-ratio:1;border:1px solid #64e8ff35;border-radius:50%;animation:spin 30s linear infinite}
+    .orbit:before,.orbit:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 22px var(--cyan)}
+    .orbit:before{top:12%;left:17%}.orbit:after{right:5%;bottom:28%;background:var(--violet);box-shadow:0 0 22px var(--violet)}
+    .portrait-card{position:relative;width:min(80%,340px);padding:10px;border:1px solid #ffffff28;border-radius:28px;background:linear-gradient(145deg,#ffffff15,#ffffff03);box-shadow:var(--shadow),0 0 80px #64e8ff12;transform:rotate(2deg);transition:transform .5s}
+    .portrait-card:hover{transform:rotate(0) translateY(-7px)}
+    .portrait-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:20px;filter:saturate(.9)}
+    .portrait-caption{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 7px 5px;font-size:.78rem;color:var(--muted)}.status{color:var(--green)}
+    .float-chip{position:absolute;z-index:2;border:1px solid var(--line);background:rgba(14,20,34,.88);backdrop-filter:blur(14px);border-radius:15px;padding:12px 15px;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite}
+    .float-chip strong{display:block;font-size:.92rem}.float-chip small{color:var(--muted)}.chip-one{top:18%;right:0}.chip-two{bottom:16%;left:0;animation-delay:-2s}
+    section{padding:95px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:35px}
+    .section-kicker{color:var(--cyan);text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;font-weight:700}
+    h2{font:600 clamp(2rem,4vw,3.4rem)/1.1 "Space Grotesk",sans-serif;letter-spacing:-.055em;margin:8px 0 0}
+    .section-intro{max-width:440px;color:var(--muted);margin:0}
+    .glass{border:1px solid var(--line);background:linear-gradient(135deg,rgba(22,30,49,.88),rgba(12,17,29,.74));backdrop-filter:blur(16px);border-radius:24px;box-shadow:var(--shadow)}
+    .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.about-card{padding:30px}.about-card p{color:var(--muted)}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.stat{padding:23px}.stat strong{display:block;font:600 2rem "Space Grotesk",sans-serif;color:var(--cyan)}.stat span{color:var(--muted);font-size:.86rem}
+    .timeline{display:grid;gap:16px}.experience{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:27px}
+    .experience-date{color:var(--cyan);font-weight:700;font-size:.85rem}.experience h3{font:600 1.22rem "Space Grotesk",sans-serif;margin-bottom:5px}
+    .experience .company{color:#d8deeb;font-weight:600;margin-bottom:12px}.experience p,.experience li{color:var(--muted)}.experience ul{padding-left:20px;margin-bottom:0}
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-card{padding:24px;transition:transform .3s,border-color .3s}.skill-card:hover{transform:translateY(-6px);border-color:#64e8ff65}
+    .skill-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#64e8ff13;color:var(--cyan);font-size:1.25rem;margin-bottom:17px}
+    .skill-card h3{font:600 1.08rem "Space Grotesk",sans-serif}.tag-list{display:flex;flex-wrap:wrap;gap:8px}.tag{font-size:.8rem;color:#bdc8da;border:1px solid var(--line);border-radius:8px;padding:5px 9px;background:#ffffff04}
+    .education-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.education-card{padding:27px}.education-card h3{font:600 1.15rem "Space Grotesk",sans-serif;margin-bottom:8px}.education-card p{color:var(--muted);margin-bottom:0}
+    .contact-panel{padding:clamp(28px,5vw,55px);display:flex;align-items:center;justify-content:space-between;gap:25px;overflow:hidden;position:relative}
+    .contact-panel:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#8b5cf626;filter:blur(25px);right:-60px;top:-100px;pointer-events:none}
+    .contact-panel p{color:var(--muted);margin:12px 0 0;max-width:540px}.contact-actions{display:flex;flex-wrap:wrap;gap:10px;z-index:1}
+    footer{border-top:1px solid var(--line);padding:25px 5vw;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:15px;max-width:1240px;margin:auto}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+    @keyframes pulse{50%{opacity:.45;transform:scale(.8)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-10px)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;gap:20px;padding-top:130px}.hero-content{order:1}.portrait-stage{order:0;min-height:390px}.portrait-card{width:min(64%,290px)}.orbit{width:min(80%,360px)}.chip-one{right:5%}.chip-two{left:5%}.about-grid{grid-template-columns:1fr}.skill-grid{grid-template-columns:repeat(2,1fr)}.section-head{align-items:start;flex-direction:column;gap:12px}}
+    @media(max-width:600px){.nav{padding:13px 20px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:65px;left:15px;right:15px;padding:18px;background:#0d1322;border:1px solid var(--line);border-radius:16px;flex-direction:column;align-items:stretch;gap:15px}.nav-links.open{display:flex}.nav-cta{display:none}main{padding:0 20px}.hero{min-height:auto;padding-top:105px;padding-bottom:35px}.portrait-stage{min-height:340px}.portrait-card{width:62%}.float-chip{padding:9px 11px}.chip-one{top:15%}.chip-two{bottom:10%}section{padding:65px 0}.experience{grid-template-columns:1fr;gap:8px;padding:22px}.skill-grid,.education-grid{grid-template-columns:1fr}.about-card{padding:23px}.contact-panel{align-items:flex-start;flex-direction:column}footer{padding:22px 20px;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <nav class="nav" id="navbar">
+    <a class="brand" href="#home" aria-label="Joel portfolio home"><span class="brand-mark">JJ</span><span>JOEL<span style="color:var(--cyan)">.DEV</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a></div>
+    <a class="nav-cta" href="#contact">Let's connect ↗</a>
+  </nav>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span class="pulse"></span> Personal portfolio / 2026</div>
+        <h1>Hi, I'm<br><span class="gradient-text">Joel Jocoy.</span></h1>
+        <p class="hero-copy">Detail-oriented and adaptable professional with hands-on experience in quality control and frontline customer service. I bring analytical thinking, a fast learning curve, and a calm approach to solving problems.</p>
+        <div class="hero-actions"><a class="button primary" href="#experience">Explore my experience <span>↘</span></a><a class="button secondary" href="#contact">Contact me</a></div>
+        <div class="mini-facts"><span class="pill">Quality Control</span><span class="pill">Customer Service</span><span class="pill">Computer Science Student</span></div>
+      </div>
+      <div class="portrait-stage reveal">
+        <div class="orbit"></div><div class="float-chip chip-one"><strong>Fast learner</strong><small>Adaptable mindset</small></div>
+        <div class="portrait-card">
+          <!-- Main image is in the repository root. If missing, try the assets folder. -->
+          <img src="joel-profile.png" alt="Portrait of Joel Jr. M. Jocoy" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='assets/joel-profile.png';}">
+          <div class="portrait-caption"><span>JOEL JR. M. JOCOY</span><span class="status">● Available</span></div>
+        </div>
+        <div class="float-chip chip-two"><strong>Detail oriented</strong><small>Quality-first approach</small></div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="section-head reveal"><div><div class="section-kicker">01 / Profile</div><h2>A little about me.</h2></div><p class="section-intro">A combination of practical work experience, people skills, and a growing technical foundation.</p></div>
+      <div class="about-grid">
+        <article class="glass about-card reveal"><h3>Professional summary</h3><p>Detail-oriented and adaptable professional with hands-on experience in quality control and frontline customer service. Known for strong analytical thinking, a fast learning curve, and the ability to stay composed under pressure. Currently completing a degree in Computer Science and eager to bring a blend of technical aptitude and interpersonal skill to a growth-oriented organization.</p><p style="margin-bottom:0">I value clear communication, consistent quality, teamwork, and learning new tools that help people work smarter.</p></article>
+        <div class="stat-grid reveal"><div class="glass stat"><strong>2</strong><span>Work experience areas</span></div><div class="glass stat"><strong>6+</strong><span>Core professional skills</span></div><div class="glass stat"><strong>2</strong><span>Languages</span></div><div class="glass stat"><strong>CS</strong><span>Current field of study</span></div></div>
+      </div>
+    </section>
+    <section id="experience">
+      <div class="section-head reveal"><div><div class="section-kicker">02 / Career</div><h2>Experience that shaped me.</h2></div><p class="section-intro">Hands-on roles that strengthened my attention to detail, customer communication, and teamwork.</p></div>
+      <div class="timeline">
+        <article class="glass experience reveal"><div class="experience-date">2025 — 2026</div><div><h3>Store Promoter</h3><div class="company">MR. D.I.Y., CMA · Antipolo, Rizal<br>Infinity Strategic Management Solutions Inc.</div><ul><li>Engaged customers on the sales floor, answered product questions, and guided purchase decisions to support store sales targets.</li><li>Maintained product displays and stock presentation to company merchandising standards.</li><li>Built rapport quickly with a wide range of customers, strengthening communication and service skills.</li></ul></div></article>
+        <article class="glass experience reveal"><div class="experience-date">2024</div><div><h3>Quality Controller (CQA)</h3><div class="company">Superl Manufacturing Inc. · AIPI PEZA, Calibutbut, Bacolor, Pampanga</div><ul><li>Inspected products along the production line to identify defects and ensure output met quality standards.</li><li>Followed inline inspection protocols and documented findings to support consistent production quality.</li><li>Collaborated with line staff and supervisors to flag and resolve quality issues promptly.</li></ul></div></article>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="section-head reveal"><div><div class="section-kicker">03 / Capabilities</div><h2>Skills &amp; strengths.</h2></div><p class="section-intro">Practical skills and personal strengths I bring to a team.</p></div>
+      <div class="skill-grid">
+        <article class="glass skill-card reveal"><div class="skill-icon">⌘</div><h3>Computer literacy</h3><div class="tag-list"><span class="tag">MS Office</span><span class="tag">Digital tools</span></div></article>
+        <article class="glass skill-card reveal"><div class="skill-icon">✦</div><h3>Customer service</h3><div class="tag-list"><span class="tag">Communication</span><span class="tag">Customer support</span></div></article>
+        <article class="glass skill-card reveal"><div class="skill-icon">◎</div><h3>Quality control</h3><div class="tag-list"><span class="tag">Inspection</span><span class="tag">Attention to detail</span></div></article>
+        <article class="glass skill-card reveal"><div class="skill-icon">↗</div><h3>Analytical thinking</h3><div class="tag-list"><span class="tag">Planning</span><span class="tag">Problem solving</span></div></article>
+        <article class="glass skill-card reveal"><div class="skill-icon">◈</div><h3>Adaptability</h3><div class="tag-list"><span class="tag">Stress resistance</span><span class="tag">Fast learning</span></div></article>
+        <article class="glass skill-card reveal"><div class="skill-icon">⌁</div><h3>Team collaboration</h3><div class="tag-list"><span class="tag">Teamwork</span><span class="tag">Coordination</span></div></article>
+      </div>
+    </section>
+    <section id="education">
+      <div class="section-head reveal"><div><div class="section-kicker">04 / Learning</div><h2>Education &amp; languages.</h2></div><p class="section-intro">Building a stronger foundation for future opportunities.</p></div>
+      <div class="education-grid">
+        <article class="glass education-card reveal"><div class="section-kicker">Education</div><h3>College Undergraduate · Computer Science</h3><p>St. Nicolas College of Business and Technology</p></article>
+        <article class="glass education-card reveal"><div class="section-kicker">Languages</div><h3>English &amp; Tagalog</h3><p>English — Advanced<br>Tagalog — Native</p></article>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="glass contact-panel reveal"><div><div class="section-kicker">05 / Contact</div><h2>Let's build what's next.</h2><p>Interested in connecting about a role or opportunity? Reach out through email.</p></div><div class="contact-actions"><a class="button primary" href="mailto:JoelJrJocoy19@Gmail.com">Email me ↗</a><button class="button secondary" id="copyEmail" type="button">Copy email</button></div></div>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Joel Jr. M. Jocoy</span><span>Designed with a futuristic, cinematic touch ✦</span></footer>
+  <div id="toast" role="status" aria-live="polite" style="position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:#111827;color:var(--text);transition:.3s;z-index:50">Email copied</div>
+  <script>
+    const nav=document.getElementById('navbar');
+    const menuToggle=document.getElementById('menuToggle');
+    const navLinks=document.getElementById('navLinks');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>24),{passive:true});
+    menuToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(isOpen));menuToggle.textContent=isOpen?'✕':'☰';});
+    navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
+    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const toast=document.getElementById('toast');
+    document.getElementById('copyEmail').addEventListener('click',async()=>{
+      const email='JoelJrJocoy19@Gmail.com';
+      try{await navigator.clipboard.writeText(email);toast.textContent='Email copied to clipboard';}
+      catch{toast.textContent=email;}
+      toast.style.opacity='1';toast.style.transform='translate(-50%,0)';
+      setTimeout(()=>{toast.style.opacity='0';toast.style.transform='translate(-50%,20px)';},2200);
+    });
+  </script>
+</body>
+</html>
